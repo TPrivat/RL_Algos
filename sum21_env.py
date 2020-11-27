@@ -30,6 +30,14 @@ class Sum21:
         dealer_sum = self.dealers_turn()
         player_sum = self.get_sum(self.player_hand)
 
+        if player_sum == 21:
+            return 1
+
+        if dealer_sum <= 0:
+            return 1
+        elif dealer_sum >= 22:
+            return 1
+
         if dealer_sum > player_sum:
             return -1
         elif player_sum > dealer_sum:
@@ -67,6 +75,8 @@ class Sum21:
             self.hit(self.player_hand)
             if self.get_sum(self.player_hand) > 21 or self.get_sum(self.player_hand) <= 0:
                 return True, -1
+            # if self.get_sum(self.player_hand) == 21:
+            #     return True, 1
             return False, 0
         else:
             return True, self.stay()
