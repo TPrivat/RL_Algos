@@ -199,7 +199,7 @@ class TDLamda:
 
 
 
-class MC2:
+class MC:
     def __init__(self, n_action, epochs, type="FV"):
         self.n_actions = n_action
         self.visit = type
